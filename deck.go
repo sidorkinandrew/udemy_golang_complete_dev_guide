@@ -40,6 +40,6 @@ func (cards deck) toString() string {
 	return strings.Join([]string(cards), ",")
 }
 
-func saveToFile(cards deck) {
-	os.WriteFile("saved.dck", []byte(cards.toString()), 0666)
+func (cards deck) saveToFile(fileName string) error {
+	return os.WriteFile(fileName, []byte(cards.toString()), 0666)
 }
