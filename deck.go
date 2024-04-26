@@ -43,3 +43,12 @@ func (cards deck) toString() string {
 func (cards deck) saveToFile(fileName string) error {
 	return os.WriteFile(fileName, []byte(cards.toString()), 0666)
 }
+
+func newDeckFromFile(fileName string) deck {
+	bytes, err := os.ReadFile(fileName)
+	if err != nil {
+		fmt.Println("[func newDeckFromFile(fileName string) deck]", fileName, "- error:", err)
+		os.Exit(1)
+	}
+	return deck(strings.Split(string(bytes), ","))
+}
