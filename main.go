@@ -10,6 +10,10 @@ func main() {
 	old_cards := newDeckFromFile("saved_deck.dck")
 	old_cards.print()
 
-	no_cards := newDeckFromFile("no-such-file.dck")
-	no_cards.print()
+	// no_cards := newDeckFromFile("no-such-file.dck")
+	// no_cards.print()
+
+	cards.shuffle()
+	cards.print()
+
 }
