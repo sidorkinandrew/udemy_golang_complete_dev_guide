@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestNesDeck(tester *testing.T) {
+func TestNewDeck(tester *testing.T) {
 	cards := newDeck()
 
 	expected_length := 52
@@ -10,12 +10,12 @@ func TestNesDeck(tester *testing.T) {
 		tester.Errorf("Expected deck length of %v, but got %v", expected_length, len(cards))
 	}
 
-	expected_first_card := "Ace of Spades"
+	expected_first_card := "Ace of Spades@"
 	if cards[0] != expected_first_card {
 		tester.Errorf("Expected first card of %v, but got %v", expected_first_card, cards[0])
 	}
 
-	expected_last_card := "King of Clubs"
+	expected_last_card := "King of Clubs@"
 	if cards[len(cards)-1] != expected_last_card {
 		tester.Errorf("Expected last card of %v, but got %v", expected_last_card, cards[len(cards)-1])
 	}
