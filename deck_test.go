@@ -64,15 +64,16 @@ func TestShuffle(tester *testing.T) {
 
 func TestDeal(tester *testing.T) {
 	cards := newDeck()
-	handSize := 5
-	hand, remainingDeck := deal(cards, handSize)
+	for handSize := 0; handSize < len(cards); handSize++ {
+		hand, remainingDeck := deal(cards, handSize)
 
-	if len(hand) != handSize {
-		tester.Errorf("Expected hand size of %v, but got %v", handSize, len(hand))
-	}
+		if len(hand) != handSize {
+			tester.Errorf("Expected hand size of %v, but got %v", handSize, len(hand))
+		}
 
-	if len(remainingDeck) != len(cards)-handSize {
-		tester.Errorf("Expected remaining deck size of %v, but got %v", len(cards)-handSize, len(remainingDeck))
+		if len(remainingDeck) != len(cards)-handSize {
+			tester.Errorf("Expected remaining deck size of %v, but got %v", len(cards)-handSize, len(remainingDeck))
+		}
 	}
 }
 
